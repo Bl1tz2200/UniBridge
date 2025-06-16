@@ -41,14 +41,14 @@ export function NavBar() { // Returning navbar
           <div><a href="/profile" className="hover:text-[#85c05d] focus:text-[#85c05d] transition-colors duration-200">Profile</a></div>
         </section>
         <section className="sm:hidden p-2 w-10">
-            <div className="group grid colomns-1 gap-1 items-center" onClick={openNavMenu}>
+            <div className="group grid grid-cols-1 gap-1 items-center" onClick={openNavMenu}>
               <span className={`${burgerState.param.topLine} w-10/12 h-1 duration-500 transition-transform rounded-full`}></span>
               <span className={`${burgerState.param.middleLine} w-10/12 bg-black h-1 duration-500 transition-transform rounded-full`}></span>
               <span className={`${burgerState.param.bottomLine} w-10/12 h-1 duration-500 transition-transform rounded-full`}></span>
             </div>
         </section>
       </header>
-      <ul className={`${dropdownMenu.param.moveToView} -mt-35 sm:hidden z-0 grid columns-1 w-screen border-b-1 shadow-xl shadow-black/20 transition-transform duration-500 bg-white`}>
+      <ul className={`${dropdownMenu.param.moveToView} w-[100%] -mt-35 sm:hidden z-9 grid columns-1 border-b-1 shadow-xl shadow-black/20 transition-transform duration-500 bg-white`}>
             <li className="text-center text-l p-0.5"><a href="/search" className="hover:text-[#85c05d] focus:text-[#85c05d] transition-colors duration-200">Search</a></li>
             <li className="text-center text-l p-0.5"><a href="/guidelines" className="hover:text-[#85c05d] focus:text-[#85c05d] transition-colors duration-200">Guidelines</a></li>
             <li className="text-center text-l p-0.5"><a href="/community" className="hover:text-[#85c05d] focus:text-[#85c05d] transition-colors duration-200">Community</a></li>
