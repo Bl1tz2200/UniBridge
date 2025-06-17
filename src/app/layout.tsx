@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Rubik, Inter } from "next/font/google";
-import { NavBar } from "../../public/navbar";
+import { NavBar } from "@/components/navbar";
 import "./globals.css";
 
 const rubik = Rubik({
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/UniBridge_Icon.ico" sizes="any" />
+        <link rel="icon" href="/icons/UniBridge.ico" sizes="any" />
       </head>
       <body className={`${rubik.variable} ${inter.variable} antialiased`}>
         <NavBar />
