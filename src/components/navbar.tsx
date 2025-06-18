@@ -1,11 +1,7 @@
 "use client"
 
 import { useState }  from "react";
-
-interface changingStyleParameter { // Creating class, that will be used to set CSS params dinamically 
-    switch: boolean,
-    param: {[key: string]: string}
-}
+import { changingStyleParameter } from "@/components/sharedObjects";
 
 
 export function NavBar() { // Returning navbar
@@ -41,7 +37,7 @@ export function NavBar() { // Returning navbar
           <div><a href="/profile" className="hover:text-(--accent) focus:text-(--accent) transition-colors duration-200">Profile</a></div>
         </section>
         <section className="sm:hidden p-2 w-10">
-            <div className="group grid grid-cols-1 gap-1 items-center" onClick={openNavMenu}>
+            <div className="group grid grid-cols-1 gap-1 items-center cursor-pointer" onClick={openNavMenu}>
               <span className={`${burgerState.param.topLine} w-10/12 h-1 duration-500 transition-transform rounded-full`}></span>
               <span className={`${burgerState.param.middleLine} w-10/12 bg-black h-1 duration-500 transition-transform rounded-full`}></span>
               <span className={`${burgerState.param.bottomLine} w-10/12 h-1 duration-500 transition-transform rounded-full`}></span>
