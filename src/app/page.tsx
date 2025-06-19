@@ -18,12 +18,12 @@ export default function Home() {
   return (
     <>
         <header className="pt-5 flex items-center justify-center">
-          <div className="grid content-center justify-center justify-items-center w-11/12 h-220 bg-center bg-cover bg-blend-darken bg-black/50 rounded-xl relative">
+          <div className="grid content-center justify-center justify-items-center w-11/12 h-220 bg-blend-darken bg-black/50 rounded-xl relative">
             <span className="m-5 text-5xl md:text-7xl text-(--accent) text-center font-(family-name:--font-rubik) font-semibold">UniBridge</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">A free platform that will become a bridge between dreams and reality.</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">The UniBridge provides structured data on admission to foreign universities: exams, application deadlines, and selection criteria.</span>
             <a href="/search" className="bg-[#85c05d] px-1.75 py-0.5 m-4 text-xl md:text-3xl text-black hover:text-white focus:text-white transition-colors duration-500 ease-out text-center rounded-3xl" >Start searching</a>
-            <Image src={university_image} alt="University Image" fill objectFit="cover" className="-z-1 rounded-xl" placeholder="blur" blurDataURL={"@/icons/University.webp"} priority />
+            <Image src={university_image} alt="University Image" fill className="-z-1 rounded-xl bg-cover" placeholder="blur" blurDataURL={"@/images/homePage/University.webp"} priority />
           </div>
         </header>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 items-center justify-center justify-items-center content-center mt-47.5 px-5 md:px-15">
@@ -85,7 +85,7 @@ export default function Home() {
         </div>
         <div className="mt-47.5">
           <section className="w-[100%]">
-            <div className="grid content-center justify-center justify-items-center w-[100%] h-220 bg-fixed bg-center bg-cover bg-[url(../../public/images/homePage/Cambridge.webp)] bg-blend-darken bg-black/60">
+            <div className="grid content-center justify-center justify-items-center w-[100%] h-220 bg-fixed bg-center bg-cover bg-[url(../../public/images/homePage/Cambridge.webp)] bg-blend-darken bg-black/60 relative">
               <span className="pb-5 text-2xl sm:text-5xl md:text-7xl border-b-1 border-white text-white text-center">Internationality</span>
               <span className="mb-3 mt-5 w-10/12 text-base sm:text-xl md:text-3xl text-white text-center">Our website provides information about admission to different countries, such as the USA, China, Germany and many others. In addition, you can find useful articles and videos about their cultural peculiarities.</span>
               <span className="m-3 w-10/12 text-base sm:text-xl md:text-3xl text-white text-center">You can get acquainted with the deadlines for submitting documents and the experience of other students right now!</span>

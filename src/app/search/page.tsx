@@ -6,7 +6,16 @@ import { useState } from "react";
 import settings_icon from "@/icons/Settings.svg"
 import Image from "next/image";
 
+type filterType = {[key: string]: string[]}
+
 export default function Search() {
+  var filterParams: filterType = { // Getting them from the DB
+      "country": ["Russia", "USA"],
+      "specialization": ["ICT", "medicine"],
+      "language": ["Russian", "English"],
+      "price": ["10000$", "20000R"],
+     "program": ["bachelor course", "magistracy"],
+  }
 
   // These will be shown only for mobile Users
   const [filterState, setFilterState] = useState<changingStyleParameter>({switch: true, param: {"moveToView": "hidden", "buttonActive": ""}})
@@ -28,7 +37,13 @@ export default function Search() {
         <section className={`${filterState.param.moveToView} md:block grid grid-cols-1 items-start justify-center content-start justify-items-center h-full fixed p-5 pb-20  border-r-1 shadow-2xl w-full sm:w-75 overflow-y-scroll`}>
           <span className="text-2xl text-center">Search Tools:</span>
           <ul className="grid grid-cols-1 gap-5 mt-2.5">
-            <AddFilters />
+            {
+              Object.entries(filterParams).map(([filterTypeName, categories]: [string, string[]]) => {
+                return (
+                <AddFilters filterTypeName={filterTypeName} values={categories} key={filterTypeName}/>
+              )
+              })
+            }
           </ul>
         </section>
         <section>
