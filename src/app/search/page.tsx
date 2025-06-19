@@ -36,7 +36,7 @@ export default function Search() {
         </div>
         <section className={`${filterState.param.moveToView} md:block grid grid-cols-1 items-start justify-center content-start justify-items-center h-full fixed p-5 pb-20  border-r-1 shadow-2xl w-full sm:w-75 overflow-y-scroll`}>
           <span className="text-2xl text-center">Search Tools:</span>
-          <ul className="grid grid-cols-1 gap-5 mt-2.5">
+          <ul className="grid grid-cols-1 gap-5 mt-2.5 w-11/12 sm:w-auto">
             {
               Object.entries(filterParams).map(([filterTypeName, categories]: [string, string[]]) => {
                 return (
