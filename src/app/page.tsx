@@ -1,5 +1,4 @@
 import Image from "next/image";
-import university_image from "@/images/homePage/University.webp"
 import logo from "@/logos/UniBridge.svg"
 import universitySearch_icon from "@/icons/UniversitySearch.svg"
 import actualInfo_icon from "@/icons/ActualInfo.svg"
@@ -17,13 +16,12 @@ import telegram_icon from "@/icons/Telegram.svg"
 export default function Home() {
   return (
     <>
-        <header className="pt-5 flex items-center justify-center">
-          <div className="grid content-center justify-center justify-items-center w-11/12 h-220 bg-blend-darken bg-black/50 rounded-xl relative">
+        <header className="mt-25 flex items-center justify-center">
+          <div className="grid content-center justify-center justify-items-center w-11/12 h-220 bg-center bg-cover bg-[url(../../public/images/homePage/University.webp)] bg-blend-darken bg-black/50 rounded-xl relative">
             <span className="m-5 text-5xl md:text-7xl text-(--accent) text-center font-(family-name:--font-rubik) font-semibold">UniBridge</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">A free platform that will become a bridge between dreams and reality.</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">The UniBridge provides structured data on admission to foreign universities: exams, application deadlines, and selection criteria.</span>
             <a href="/search" className="bg-[#85c05d] px-1.75 py-0.5 m-4 text-xl md:text-3xl text-black hover:text-white focus:text-white transition-colors duration-500 ease-out text-center rounded-3xl" >Start searching</a>
-            <Image src={university_image} alt="University Image" fill className="-z-1 rounded-xl bg-cover" placeholder="blur" blurDataURL={"@/images/homePage/University.webp"} priority />
           </div>
         </header>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 items-center justify-center justify-items-center content-center mt-47.5 px-5 md:px-15">
