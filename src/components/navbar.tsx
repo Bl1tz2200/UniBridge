@@ -20,7 +20,7 @@ export function NavBar() { // Returning navbar
     }
 
   return (
-    <nav className="fixed mt-0 top-0 w-[100%] z-10">
+    <nav className="fixed mt-0 top-0 w-[100%] text-(--foreground) z-10">
       <header className="relative flex  p-3 md:p-5 pt-5 justify-between items-center shadow-xl z-10 bg-white">
         <section className="hidden sm:flex text-sm md:text-xl gap-5 justify-start">
           <div><a href="/search" className="hover:text-(--accent) focus:text-(--accent) transition-colors duration-200">Search</a></div>

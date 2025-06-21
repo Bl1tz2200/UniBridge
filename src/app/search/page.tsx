@@ -5,25 +5,12 @@ import { changingStyleParameter } from "@/components/sharedObjects";
 import { useState } from "react";
 import settings_icon from "@/icons/Settings.svg"
 import Image from "next/image";
-import mgu_image from "@/images/search/moscowgovermentuniversity.jpg"
 import { CreateCard } from "./components/universityCard_component";
+import { filtersList, universityInfo } from "./searchObjects";
 
-type filterParamsList = {[key: string]: string[]}
-
-type universityInfoList ={
-  image_name: string,
-  keyName: string,
-  label: string,
-  starSum: number,
-  startCounter: number,
-  acceptanceRating: number,
-  tuitionFee: string,
-  dateStart: string,
-  dateEnd: string
-}[]
 
 export default function Search() {
-  var filterList: filterParamsList = { // Getting them from the DB
+  var filterList: filtersList = { // Getting them from the DB
     "country": ["Russia", "USA"],
     "specialization": ["ICT", "medicine"],
     "language": ["Russian", "English"],
@@ -31,7 +18,7 @@ export default function Search() {
     "program": ["bachelor course", "magistracy"],
   }
 
-  var universityList: universityInfoList = [ // Getting them from the DB
+  var universityList: universityInfo[] = [ // Getting them from the DB
     {
       image_name: "moscowgovermentuniversity.jpg", 
       keyName: "moscowgovermentuniversity", 
@@ -95,7 +82,7 @@ export default function Search() {
               }
             </ul>
         </section>
-    </>
+     </>
     
   );
 }

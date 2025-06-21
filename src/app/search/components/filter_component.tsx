@@ -3,11 +3,7 @@
 import { capitalizeFirstLetter } from "@/hooks/textUtils";
 import { changingStyleParameter } from "@/components/sharedObjects";
 import { useState } from "react";
-
-type filterParams = {
-    filterTypeName: string,
-    values: string[]
-}
+import { filterParams } from "../searchObjects";
 
 export function AddFilters({filterTypeName, values}: filterParams) { // Component to add filters by values
   

@@ -1,18 +1,7 @@
 "use client"
 
 import Image from "next/image";
-
-type universityInfo = {
-  image_name: string,
-  keyName: string,
-  label: string,
-  starSum: number,
-  startCounter: number,
-  acceptanceRating: number,
-  tuitionFee: string,
-  dateStart: string,
-  dateEnd: string
-}
+import { universityInfo } from "../searchObjects";
 
 export function CreateCard({image_name, keyName, label, starSum, startCounter, acceptanceRating, tuitionFee, dateStart, dateEnd}: universityInfo) { // Component to make cards of university
     return (
