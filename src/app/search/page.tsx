@@ -6,7 +6,7 @@ import { useState } from "react";
 import settings_icon from "@/icons/Settings.svg"
 import Image from "next/image";
 import { CreateCard } from "./components/universityCard_component";
-import { filtersList, universityInfo } from "./searchObjects";
+import { filtersList, universityCardInfo } from "./searchObjects";
 
 
 export default function Search() {
@@ -18,7 +18,7 @@ export default function Search() {
     "program": ["bachelor course", "magistracy"],
   }
 
-  var universityList: universityInfo[] = [ // Getting them from the DB
+  var universityList: universityCardInfo[] = [ // Getting them from the DB
     {
       image_name: "moscowgovermentuniversity.jpg", 
       keyName: "moscowgovermentuniversity", 

@@ -1,27 +1,28 @@
 import Image from "next/image";
+import university_image from "../../public/images/homePage/University.webp"
 import logo from "@/logos/UniBridge.svg"
 import universitySearch_icon from "@/icons/UniversitySearch.svg"
 import actualInfo_icon from "@/icons/ActualInfo.svg"
 import community_icon from "@/icons/Community.svg"
-import instagram_icon from "@/icons/Instagram.svg"
 import documents_image from "@/images/homePage/Documents.webp"
 import studentMeeting_image from "@/images/homePage/StudentMeeting.webp"
 import universityLife_image from "@/images/homePage/UniversityLife.webp"
 import usaUniversity_image from "@/images/homePage/USAUniversity.webp"
 import chinaUnversity_image from "@/images/homePage/ChinaUniversity.webp"
 import germanyUniversity_image from "@/images/homePage/GermanyUniversity.webp"
+import instagram_icon from "@/icons/Instagram.svg"
 import telegram_icon from "@/icons/Telegram.svg"
-
 
 export default function Home() {
   return (
     <>
         <header className="mt-25 flex items-center justify-center">
-          <div className="grid content-center justify-center justify-items-center w-11/12 h-220 bg-center bg-cover bg-[url(../../public/images/homePage/University.webp)] bg-blend-darken bg-black/50 rounded-xl relative">
+          <div className={`grid content-center justify-center justify-items-center w-11/12 h-220 bg-center bg-cover bg-blend-darken bg-black/50 rounded-xl relative`}>
             <span className="m-5 text-5xl md:text-7xl text-(--accent) text-center font-(family-name:--font-rubik) font-semibold">UniBridge</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">A free platform that will become a bridge between dreams and reality.</span>
             <span className="m-3 w-10/12 text-xl md:text-3xl text-white text-center">The UniBridge provides structured data on admission to foreign universities: exams, application deadlines, and selection criteria.</span>
             <a href="/search" className="bg-[#85c05d] px-1.75 py-0.5 m-4 text-xl md:text-3xl text-black hover:text-white focus:text-white transition-colors duration-500 ease-out text-center rounded-3xl" >Start searching</a>
+            <Image src={ university_image } className="-z-1 rounded-xl object-cover" alt="UniBridge Logo" placeholder="blur" blurDataURL={university_image.blurDataURL} fill priority/>
           </div>
         </header>
         <div className="grid sm:grid-cols-1 md:grid-cols-2 items-center justify-center justify-items-center content-center mt-47.5 px-5 md:px-15">
@@ -35,7 +36,7 @@ export default function Home() {
           </section>
           <section className="items-center content-center justify-center justify-items-center">
             <div className="flex w-10/12 overflow-hidden items-center justify-center">
-              <Image src={ logo } alt="UniBridge Logo" placeholder="blur" blurDataURL={"@/logos/UniBridge.svg"} loading="lazy"/>
+              <Image src={ logo } alt="UniBridge Logo" loading="lazy"/>
             </div>
             <span className="text-4xl sm:text-6xl md:text-7xl text-center font-(family-name:--font-rubik) font-bold">UniBridge</span>
           </section>
@@ -47,7 +48,7 @@ export default function Home() {
           </section>
           <section className="grid grid-cols-1 mt-25 gap-22.5 items-center content-center justify-center justify-items-center w-11/12 md:w-8/12">
             <div className="flex justify-between w-12/12 md:w-10/12">
-              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={universitySearch_icon} fill={true} alt="universitySearch_icon" placeholder="blur" blurDataURL={"@/icons/UniversitySearch.svg"} loading="lazy"/></div>
+              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={universitySearch_icon} fill={true} alt="universitySearch_icon" loading="lazy"/></div>
                <div className="grid grid-cols-1 items-center content-center w-12/12 md:w-10/12 ml-10">
                 <span className="text-l sm:text-xl md:text-2xl font-semibold mb-1">
                   Search by Countries
@@ -58,7 +59,7 @@ export default function Home() {
                </div>
             </div>
             <div className="flex justify-between w-12/12 md:w-10/12">
-              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={actualInfo_icon} fill={true} alt="ActualInfo_icon" placeholder="blur" blurDataURL={"@/icons/ActualInfo.svg"} loading="lazy"/></div>
+              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={actualInfo_icon} fill={true} alt="ActualInfo_icon" loading="lazy"/></div>
                <div className="grid grid-cols-1 items-center content-center w-12/12 md:w-10/12 ml-10">
                 <span className="text-l sm:text-xl md:text-2xl font-semibold mb-1">
                   Up-to-date information about admission
@@ -69,7 +70,7 @@ export default function Home() {
                </div>
             </div>
             <div className="flex justify-between w-12/12 md:w-10/12">
-              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={community_icon} fill={true} alt="Community_icon" placeholder="blur" blurDataURL={"@/icons/Community.svg"} loading="lazy"/></div>
+              <div className="flex w-30 h-30 items-center justify-center relative"><Image src={community_icon} fill={true} alt="Community_icon" loading="lazy"/></div>
                <div className="grid grid-cols-1 items-center content-center w-12/12 md:w-10/12 ml-10"> 
                 <span className="text-l sm:text-xl md:text-2xl font-semibold mb-1">
                   Community
@@ -149,7 +150,7 @@ export default function Home() {
         <div className="mt-47.5 grid grid-cols-1 gap-30">
           <section className="flex flex-wrap items-center justify-center justify-items-center gap-20">
             <div className="flex w-75 h-100 sm:w-100 sm:h-125 md:w-125 md:h-150 items-end md:items-center px-3 transition-transform duration-1000 hover:scale-105">
-              <Image src={usaUniversity_image} alt="USA University Photo" width={720} height={960} placeholder="blur" blurDataURL={"@/images/homePage/USAUniversity.webp"} loading="lazy"/>
+              <Image src={usaUniversity_image} alt="USA University Photo" width={720} height={960} placeholder="blur" blurDataURL={usaUniversity_image.blurDataURL} loading="lazy"/>
             </div>
             <div className="grid grid-cols-1 items-center content-center justify-items-center w-11/12 md:w-5/12 px-5 md:px-3">
               <header className="grid grid-cols-1 items-center justify-items-center">
@@ -206,12 +207,12 @@ export default function Home() {
               </section>
             </div>
             <div className="flex w-75 h-100 sm:w-100 sm:h-125 md:w-125 md:h-150 items-end md:items-center px-3 transition-transform duration-1000 hover:scale-105">
-              <Image src={chinaUnversity_image} alt="China University Photo" width={720} height={960} placeholder="blur" blurDataURL={"@/images/homePage/ChinaUniversity.webp"} loading="lazy" />
+              <Image src={chinaUnversity_image} alt="China University Photo" width={720} height={960} placeholder="blur" blurDataURL={chinaUnversity_image.blurDataURL} loading="lazy" />
             </div>
           </section>
           <section className="flex flex-wrap items-center justify-center justify-items-center gap-20">
             <div className="flex w-75 h-100 sm:w-100 sm:h-125 md:w-125 md:h-150 items-end md:items-center px-3 transition-transform duration-1000 hover:scale-105">
-              <Image src={germanyUniversity_image} alt="Germany University Photo" width={720} height={960} placeholder="blur" blurDataURL={"@/images/homePage/GermanyUniversity.webp"} loading="lazy" />
+              <Image src={germanyUniversity_image} alt="Germany University Photo" width={720} height={960} placeholder="blur" blurDataURL={germanyUniversity_image.blurDataURL} loading="lazy" />
             </div>
             <div className="grid grid-cols-1 items-center content-center justify-items-center w-11/12 md:w-5/12 px-5 md:px-3">
               <header className="grid grid-cols-1 items-center justify-items-center">
@@ -250,7 +251,7 @@ export default function Home() {
               <ul className="flex flex-wrap items-center gap-15 justify-center content-center justify-items-center px-10 mt-10">
                 <li className="grid grid-cols-1 justify-items-center content-center items-center gap-2.5 md:gap-5 w-100">
                   <section className="sm:h-100 hover:scale-105 duration-1000 transition-transform">
-                    <Image className="rounded-xl" src={documents_image} placeholder="blur" blurDataURL={"@/images/homePage/Documents.webp"} alt="Documents" loading="lazy" />
+                    <Image className="rounded-xl" src={documents_image} placeholder="blur" blurDataURL={documents_image.blurDataURL} alt="Documents" loading="lazy" />
                   </section>
                   <section className="grid grid-cols-1 justify-items-center h-50 content-between justify-center ">
                     <span className="text-center text-2xl pointer-events-none">Information about admission</span>
@@ -260,7 +261,7 @@ export default function Home() {
                 </li>
                 <li className="grid grid-cols-1 justify-items-center content-center items-center gap-2.5 md:gap-5 w-100">
                   <section className="sm:h-100 hover:scale-105 duration-1000 transition-transform">
-                    <Image className="rounded-xl" src={studentMeeting_image} placeholder="blur" blurDataURL={"@/images/homePage/StudentMeeting.webp"}  alt="Student Meeting" loading="lazy" />
+                    <Image className="rounded-xl" src={studentMeeting_image} placeholder="blur" blurDataURL={studentMeeting_image.blurDataURL}  alt="Student Meeting" loading="lazy" />
                   </section>
                   <section className="grid grid-cols-1 justify-items-center h-50 content-between justify-center">
                     <span className="text-center text-2xl pointer-events-none">Feedback</span>
@@ -270,7 +271,7 @@ export default function Home() {
                 </li>
                 <li className="grid grid-cols-1 justify-items-center content-center items-center gap-2.5 md:gap-5 w-100">
                   <section className="sm:h-100 hover:scale-105 duration-1000 transition-transform">
-                    <Image className="rounded-xl" src={universityLife_image} placeholder="blur" blurDataURL={"@/images/homePage/UniversityLife.webp"} alt="UniversityLife" loading="lazy" />
+                    <Image className="rounded-xl" src={universityLife_image} placeholder="blur" blurDataURL={universityLife_image.blurDataURL} alt="UniversityLife" loading="lazy" />
                   </section>
                   <section className="grid grid-cols-1 justify-items-center h-50 content-between justify-center">
                     <span className="text-center text-2xl pointer-events-none">Articles and tips</span>
@@ -286,13 +287,13 @@ export default function Home() {
             <ul className="w-[100%] flex items-center justify-center flex-wrap mt-5 gap-5">
               <li>
                 <a href="/" className="flex items-center justify-center gap-2.5 transition-transform duration-200 hover:scale-110 focus:scale-110">
-                  <Image src={instagram_icon} width={50} height={50} placeholder="blur" blurDataURL={"@/icons/Instagram.svg"} alt="Instagram" loading="lazy" />
+                  <Image src={instagram_icon} width={50} height={50} alt="Instagram" loading="lazy" />
                   <span className="text-white text-3xl transition-colors duration-200 hover:text-(--accent) focus:text-(--accent)" >withUniBridge</span>
                 </a>
               </li>
               <li>
                 <a href="https://t.me/withUniBridge" className="flex items-center justify-center gap-2.5 transition-transform duration-200 hover:scale-110 focus:scale-110">
-                  <Image src={telegram_icon} width={50} height={50} placeholder="blur" blurDataURL={"@/icons/Telegram.svg"} alt="Telegram" loading="lazy" />
+                  <Image src={telegram_icon} width={50} height={50} alt="Telegram" loading="lazy" />
                   <span className="text-white text-3xl transition-colors duration-200 hover:text-(--accent) focus:text-(--accent)" >withUniBridge</span>
                 </a>
               </li>
