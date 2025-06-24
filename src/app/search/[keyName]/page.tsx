@@ -95,7 +95,7 @@ export default function Page() {
           </ul>
         </div>
       </section>
-      <section className='grid grid-cols-1 items-center pt-20 mt-20 border-t-5 border-(--accent) w-9/12 justify-self-center'>
+      <section className='grid grid-cols-1 items-center pt-20 mt-20 border-t-5 border-(--accent) w-9/12 justify-self-center mb-10'>
         <span className='text-center text-4xl'>Contacts:</span>
         <ul className='mt-5 w-full flex flex-wrap items-center justify-center gap-10'>
             {
