@@ -23,8 +23,7 @@ export default function Search() {
       image_name: "moscowgovermentuniversity.jpg", 
       keyName: "moscowgovermentuniversity", 
       label: "Moscow Goverment University", 
-      starSum: Number("16"), 
-      startCounter: Number("4"), 
+      worldRating: Number("157"),
       acceptanceRating: Number("50"),
       tuitionFee: "$27,024", 
       dateStart: "29.04", 
@@ -70,8 +69,7 @@ export default function Search() {
                     image_name={universityInfo.image_name} 
                     keyName={universityInfo.keyName}
                     label={universityInfo.label}
-                    starSum={universityInfo.starSum}
-                    startCounter={universityInfo.startCounter}
+                    worldRating={universityInfo.worldRating}
                     acceptanceRating={universityInfo.acceptanceRating}
                     tuitionFee={universityInfo.tuitionFee}
                     dateStart={universityInfo.dateStart}

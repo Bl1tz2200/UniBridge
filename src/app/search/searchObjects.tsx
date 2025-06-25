@@ -2,8 +2,7 @@ export type universityCardInfo = { // Used to get universityInfo for cards from 
   image_name: string,
   keyName: string,
   label: string,
-  starSum: number,
-  startCounter: number,
+  worldRating: number,
   acceptanceRating: number,
   tuitionFee: string,
   dateStart: string,
@@ -13,10 +12,15 @@ export type universityCardInfo = { // Used to get universityInfo for cards from 
 export type universityPageInfo = universityCardInfo & { // Used to get universityInfo for university page from db
   description: string,
   scholarship: string,
-  practical: string,
+  accomadation: string,
   subjects: string[],
   qualifications: string[],
+  additionalPrograms: string[],
   contacts: {[key: string]: string}
+  elegibility: {
+    general: string[],
+    international: string[]
+  }
 }
 
 export type filterParams = { // Used to fetch each filter from filtersList
