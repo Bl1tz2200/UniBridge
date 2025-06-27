@@ -28,6 +28,7 @@ const corsOptions = {
 
 // Server atachements 
 server.use(cors(corsOptions))
+server.use(express.static("public"));
 
 // Creating multer for FormData parse
 const upload = multer();
