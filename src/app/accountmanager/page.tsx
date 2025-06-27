@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, startTransition, useState, ChangeEvent } from "react";
+import { useEffect, useState, ChangeEvent } from "react";
 import { setCookie } from "@/hooks/cookieManager";
 import { changingStyleParameter, IP_BACKEND } from "@/components/sharedObjects";
 import axios, { AxiosError } from "axios";
@@ -23,15 +23,9 @@ function isRegistrationForm(obj: loginForm | registrationForm): obj is registrat
 }
 
 export default function AccountManage() {
-  useEffect(() => {
-    startTransition(async () => {
-      await setCookie("token", "1")
-    })
-  }, [])
-
   const router = useRouter() // To redirect after login/registration
 
-  const [popup, setPopup] = useState<{message: string, isShown: boolean, preventReload: boolean}>({message: "a", isShown: false, preventReload: false}) // Controlling popup function
+  const [popup, setPopup] = useState<{message: string, isShown: boolean, preventReload: boolean}>({message: "", isShown: false, preventReload: false}) // Controlling popup function
   const [formValue, setformValue] = useState<loginForm | registrationForm>({username: "", password: ""});
   const [fillingBox, setFillingBox] = useState<changingStyleParameter>({switch: true, param: {}}) // Changinge between login/registration windows
 
@@ -127,7 +121,7 @@ export default function AccountManage() {
   
   return (
     <>
-    <PopUp popup={popup} setPopup={setPopup } />
+    <PopUp popup={popup} setPopup={setPopup} />
     <div className="flex items-center justify-center h-screen bg-repeat bg-cover bg-center bg-[url(../../public/images/profile/acoountManager/background.png)] bg-blend-darken bg-black/50">
       { isRegistrationForm(formValue) ?
         <section className={`${fillingBox.param.registrationBox} fixed transform-3d  grid grid-cols-1 items-center justify-items-center bg-white sm:hover:scale-110 rounded-xl p-5 transition-transform duration-500 ease-out`}>

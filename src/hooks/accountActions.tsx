@@ -50,21 +50,19 @@ export async function getUserData(): Promise<{error: boolean, message: string, u
         
             return {error: false, message: "", userdata: {username: response.data.username, email: response.data.email}}
         } catch(error) { // If we've got error answer from server
-            await delCookie("tokenLong")
-            await delCookie("tokenShort")
-
             const status = (error as AxiosError)?.response?.status
             if (status == 401){
-                const {error, message} = await updateShortToken()
-                return {error: true, message: error ? message : "shortTokenExpired", userdata: undefined} // If short token is expired - update it 
+                const {error, message} = await updateShortToken() // If short token is expired - update it 
+                return error ? {error: true, message: message, userdata: undefined} : await getUserData() // Try to get user data again if no errors while updating short token
             } else {
-                return {error: true, message: "Checking token on server error!", userdata: undefined}
+                delCookie("tokenLong")
+                delCookie("tokenShort")
+                return {error: true, message: "Checking token on server error! Try to login into account again!", userdata: undefined}
             }   
         }
         
     } else{
-        await delCookie("tokenLong")
-        await delCookie("tokenShort")
-        return {error: true, message: "Try to relogin!", userdata: undefined}
+        const {error, message} = await updateShortToken() // If there aren't short token then get it 
+         return error ? {error: true, message: message, userdata: undefined} : await getUserData() // Try to get user data again if no errors while updating short token
     }
 }

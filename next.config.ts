@@ -1,8 +1,10 @@
-import type { NextConfig } from "next";
+export const DOMAINS_BACKEND = ["localhost"]
 
-const nextConfig: NextConfig = {
-  /* config options here */
-  devIndicators: false
-};
 
-export default nextConfig;
+module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: DOMAINS_BACKEND,
+  },
+  devIndicators: false 
+}
