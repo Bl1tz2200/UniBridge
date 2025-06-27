@@ -4,3 +4,8 @@ export interface changingStyleParameter { // Creating interface, that will be us
     switch: boolean,
     param: {[key: string]: string}
 }
+
+export type userData = {
+    username: string,
+    email: string
+}

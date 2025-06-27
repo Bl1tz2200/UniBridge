@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { universityCardInfo } from "../searchObjects";
 
-export function CreateCard({image_name, keyName, label, worldRating, acceptanceRating, tuitionFee, dateStart, dateEnd}: universityCardInfo) { // Component to make cards of university
+export function CreateCard({image_name, keyName, label, worldRating, acceptanceRating, tuitionFee, dates}: universityCardInfo) { // Component to make cards of university
     return (
       <>
         <li className="grid grid-cols-1 shadow-xl rounded-xl max-w-70">
@@ -26,7 +26,7 @@ export function CreateCard({image_name, keyName, label, worldRating, acceptanceR
               </li>
               <li className="grid grid-cols-1 items-center content-center justify-center justify-items-center">
               <span className="text-sm text-center">Application dates:</span>
-              <span className="text-center">{dateStart} — {dateEnd}</span>
+              <span className="text-center">{dates.main.dateStart} — {dates.main.dateEnd}</span>
               </li>
           </ul>
           </div>

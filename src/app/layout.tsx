@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Rubik, Inter } from "next/font/google";
 import { NavBar } from "@/components/navbar";
+import { PopUp } from "@/components/popup";
 import "./globals.css";
 
 const rubik = Rubik({

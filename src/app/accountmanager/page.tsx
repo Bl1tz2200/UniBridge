@@ -1,9 +1,12 @@
 "use client"
 
 import { useEffect, startTransition, useState, ChangeEvent } from "react";
-import { setCookie } from "./cookieManager";
+import { setCookie } from "@/hooks/cookieManager";
 import { changingStyleParameter, IP_BACKEND } from "@/components/sharedObjects";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
+import { PopUp } from "@/components/popup";
+import { updateShortToken } from "@/hooks/accountActions";
+import { useRouter } from "next/navigation";
 
 type loginForm = {
   username: string,
@@ -26,6 +29,9 @@ export default function AccountManage() {
     })
   }, [])
 
+  const router = useRouter() // To redirect after login/registration
+
+  const [popup, setPopup] = useState<{message: string, isShown: boolean, preventReload: boolean}>({message: "a", isShown: false, preventReload: false}) // Controlling popup function
   const [formValue, setformValue] = useState<loginForm | registrationForm>({username: "", password: ""});
   const [fillingBox, setFillingBox] = useState<changingStyleParameter>({switch: true, param: {}}) // Changinge between login/registration windows
 
@@ -63,17 +69,26 @@ export default function AccountManage() {
               headers: { "Content-Type": "multipart/form-data" },
             });
             
-            if (response.status == 200){
-              console.log("Nice!")
+            setCookie("tokenLong", response.data.tokenLong) // Setting token in cookie if all right
+
+            const {error, message} = await updateShortToken() // trying to update short token
+            if (error){
+              setPopup({...popup, message: message, isShown: true, preventReload: false})
+            } else {
+              router.push("/profile")
             }
-            
-          } catch(error) {
-            console.log(error)
+
+          } catch(error) { // If we've got error answer from server
+            const status = (error as AxiosError)?.response?.status
+            if (status == 409){
+              setPopup({message: "User with that username already exists!", isShown: true, preventReload: true})
+            } else {
+              setPopup({...popup, message: `Server error! ERROR: ${error}`, isShown: true})
+            }  
           }
         } else {
-          console.log("Passwords aren't same")
+          setPopup({message: "Passwords aren't same!", isShown: true, preventReload: true})
         }
-        
       } else { // if it's login
         const loginFormData = new FormData();
         loginFormData.append("username", formValue.username)
@@ -87,20 +102,32 @@ export default function AccountManage() {
             headers: { "Content-Type": "multipart/form-data" },
           });
 
-          if (response.status == 200){
-            console.log("Nice Login!")
+          setCookie("tokenLong", response.data.tokenLong) // Setting token in cookie if all right
+
+          const {error, message} = await updateShortToken() // trying to update short token
+          if (error){
+            setPopup({...popup, message: message, isShown: true, preventReload: false})
+          } else {
+            router.push("/profile")
           }
-        } catch(error) {
-          console.log(error)
+
+        } catch(error) { // If we've got error answer from server
+          const status = (error as AxiosError)?.response?.status
+          if (status == 401 || status == 404){
+            setPopup({...popup, message: "Login or password is incorrect!", isShown: true, preventReload: true})
+          } else {
+            setPopup({...popup, message: `Server error! ERROR: ${error}`, isShown: true})
+          }        
         }
       }
     } else {
-      console.log("Error, mistypes")
+      setPopup({...popup, message: `ERROR while sending data to server:\nMistypes`, isShown: true})
     }
   }
   
   return (
     <>
+    <PopUp popup={popup} setPopup={setPopup } />
     <div className="flex items-center justify-center h-screen bg-repeat bg-cover bg-center bg-[url(../../public/images/profile/acoountManager/background.png)] bg-blend-darken bg-black/50">
       { isRegistrationForm(formValue) ?
         <section className={`${fillingBox.param.registrationBox} fixed transform-3d  grid grid-cols-1 items-center justify-items-center bg-white sm:hover:scale-110 rounded-xl p-5 transition-transform duration-500 ease-out`}>

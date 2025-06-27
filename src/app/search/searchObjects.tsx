@@ -5,17 +5,20 @@ export type universityCardInfo = { // Used to get universityInfo for cards from 
   worldRating: number,
   acceptanceRating: number,
   tuitionFee: string,
-  dateStart: string,
-  dateEnd: string,
+  dates: {
+    [whichDate: string]: {
+      [dateParts: string]: string,
+    }
+  }
 }
 
 export type universityPageInfo = universityCardInfo & { // Used to get universityInfo for university page from db
   description: string,
-  scholarship: string,
-  accomadation: string,
-  subjects: string[],
+  scholarships: string[],
+  accomadations: string[],
+  majors: string[],
   qualifications: string[],
-  additionalPrograms: string[],
+  otherPrograms: string[],
   contacts: {[key: string]: string}
   elegibility: {
     general: string[],

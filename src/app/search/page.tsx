@@ -25,9 +25,13 @@ export default function Search() {
       label: "Moscow Goverment University", 
       worldRating: Number("157"),
       acceptanceRating: Number("50"),
-      tuitionFee: "$27,024", 
-      dateStart: "29.04", 
-      dateEnd: "01.08"
+      tuitionFee: "$27,024",
+      dates: {
+        main: {
+          dateStart: "29.04", 
+          dateEnd: "01.08"
+        }
+      }
     },
   ]
 
@@ -72,8 +76,7 @@ export default function Search() {
                     worldRating={universityInfo.worldRating}
                     acceptanceRating={universityInfo.acceptanceRating}
                     tuitionFee={universityInfo.tuitionFee}
-                    dateStart={universityInfo.dateStart}
-                    dateEnd={universityInfo.dateEnd}
+                    dates={universityInfo.dates}
                     />
                   )
                 })
